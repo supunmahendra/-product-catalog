@@ -26,6 +26,7 @@ getProduct((data, error) =>{
 });
 */
 
+/*
 const nowGetSomthing = () => {
     return new Promise ((resolve, reject)=>{
         resolve('i got someting')
@@ -41,3 +42,40 @@ nowGetSomthing().then((result) =>{
 
 const semthingRecived = nowGetSomthing();
 console.log (semthingRecived)
+
+*/
+
+/*const getProductsPromiseFunction =(resourceURL) =>{
+  return new Promise ((resolve,reject)=>{
+    const request = new XMLHttpRequest();
+    request.addEventListener('readystatechange', ()=> {
+        if(request.status === 200 && request.readyState ===4){
+            resolve(request.responseText)
+        }
+        else if (request.readyState ===4) {
+            reject("error"); 
+        }
+    } )
+    request.open('GET',resourceURL);
+    request.send();
+  })
+
+}
+
+const URL='https://fakestoreapi.com/products'
+
+result=getProductsPromiseFunction(URL).then((data)=>{
+    const convertProducts =JSON.parse(data);
+    console.log(convertProducts)
+}).catch((A)=>{
+    console.log(A)
+});
+*/
+
+fetch('https://fakestoreapi.com/products').then((response)=>{
+    return response.json();
+}).then((data)=>{
+    console.log(data);
+}).catch((A)=>{
+    console.log(A);
+})
