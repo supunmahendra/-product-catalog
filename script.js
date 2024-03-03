@@ -86,15 +86,9 @@ function productsPrint (){
 }
 
 /*
-<div class="ProductList ProductDetail">
-    <div>
-        <img class="image" src="https://i.ebayimg.com/thumbs/images/g/ldcAAOSwmgJlsz5f/s-l300.webp" alt="dd"> 
-    </div>
-                
-    <div>
-        <p>nsdfn</p>
-        <p>asdjnf</p>
-
-    </div>
+<div class="Product">
+                    <img src="https://i.ebayimg.com/thumbs/images/g/ldcAAOSwmgJlsz5f/s-l300.webp" alt="dd">                 
+                    <p class="product-title">casio</p>
+                    <p class="product-price">250</p>
 </div>
 */
