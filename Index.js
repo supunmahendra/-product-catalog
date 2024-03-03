@@ -75,7 +75,26 @@ result=getProductsPromiseFunction(URL).then((data)=>{
 fetch('https://fakestoreapi.com/products').then((response)=>{
     return response.json();
 }).then((data)=>{
-    console.log(data);
+    const ProductList= data;
+    console.log(ProductList);
 }).catch((A)=>{
     console.log(A);
 })
+
+function productsPrint (){
+    
+}
+
+/*
+<div class="ProductList ProductDetail">
+    <div>
+        <img class="image" src="https://i.ebayimg.com/thumbs/images/g/ldcAAOSwmgJlsz5f/s-l300.webp" alt="dd"> 
+    </div>
+                
+    <div>
+        <p>nsdfn</p>
+        <p>asdjnf</p>
+
+    </div>
+</div>
+*/

@@ -56,3 +56,21 @@ nav{
     font-size:35px ;
     color: rgb(138, 138, 138);
 }
+
+.ProductDetail{
+    display: flex;
+    gap:25px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.ProductList{
+    display: flex;
+    border: solid gray 2px;
+    border-radius: 10px;
+}
+
+.image{
+    display: flex;
+    width: 150px;
+}
