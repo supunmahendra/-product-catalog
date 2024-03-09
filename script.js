@@ -71,24 +71,54 @@ result=getProductsPromiseFunction(URL).then((data)=>{
     console.log(A)
 });
 */
+//const productPrint = document.querySelector(".Product")
+const productPrintBox = document.querySelector("#product-list")
+
+console.log(productPrintBox)
+
+
+function productsPrint(A) {
+    for(let i=0 ; i < A.length; i++ ){
+        const productBox =document.createElement("div")
+        productBox.setAttribute("class", "Product")
+        
+        const product = document.createElement("img")
+        product.setAttribute ("src", A[i].image)
+
+        const productName = document.createElement("p")
+        productName.textContent = 'Name:'+ A[i].title
+
+        const productPrice = document.createElement("p")
+        productPrice.textContent = 'Price:' + A[i].price
+        
+        productBox.appendChild(product)
+        productBox.appendChild(productName)
+        productBox.appendChild(productPrice)
+        
+        productPrintBox.appendChild(productBox)
+    }
+}
+
+
 
 fetch('https://fakestoreapi.com/products').then((response)=>{
     return response.json();
 }).then((data)=>{
-    const ProductList= data;
-    console.log(ProductList);
+    const productList= data;
+    console.log(productList);
+    productsPrint(productList);
 }).catch((A)=>{
     console.log(A);
 })
 
-function productsPrint (){
-    
-}
 
 /*
-<div class="Product">
+<di class="Product">
                     <img src="https://i.ebayimg.com/thumbs/images/g/ldcAAOSwmgJlsz5f/s-l300.webp" alt="dd">                 
                     <p class="product-title">casio</p>
                     <p class="product-price">250</p>
-</div>
-*/
+</di
+
+
+var a=[1,2]
+console.log*/
