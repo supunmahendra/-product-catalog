@@ -72,12 +72,34 @@ result=getProductsPromiseFunction(URL).then((data)=>{
 });
 */
 //const productPrint = document.querySelector(".Product")
+
 const productPrintBox = document.querySelector("#product-list")
+const btn =document.querySelector("#refresh")
 
-console.log(productPrintBox)
+console.log(btn)
+
+btn.addEventListener("click", refreshedlist)
+
+function refreshedlist () {
+    fetch('https://fakestoreapi.com/products').then((response)=>{
+        return response.json();
+    }).then((data)=>{
+        const productRefreshedList= data;
+        console.log(productRefreshedList);
+        productsPrint(productRefreshedList);
+    }).catch((A)=>{
+        console.log(A);
+    })
+
+    for(let i=0 ; i < productRefreshedList.length; i++ ){
+    productList.push(productRefreshedList[i])
+    }
+}
 
 
-function productsPrint(A) {
+
+
+function productsPrint(A,B) {
     for(let i=0 ; i < A.length; i++ ){
         const productBox =document.createElement("div")
         productBox.setAttribute("class", "Product")
@@ -110,15 +132,3 @@ fetch('https://fakestoreapi.com/products').then((response)=>{
 }).catch((A)=>{
     console.log(A);
 })
-
-
-/*
-<di class="Product">
-                    <img src="https://i.ebayimg.com/thumbs/images/g/ldcAAOSwmgJlsz5f/s-l300.webp" alt="dd">                 
-                    <p class="product-title">casio</p>
-                    <p class="product-price">250</p>
-</di
-
-
-var a=[1,2]
-console.log*/
