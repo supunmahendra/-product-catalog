@@ -76,30 +76,12 @@ result=getProductsPromiseFunction(URL).then((data)=>{
 const productPrintBox = document.querySelector("#product-list")
 const btn =document.querySelector("#refresh")
 
-console.log(btn)
-
-btn.addEventListener("click", refreshedlist)
-
-function refreshedlist () {
-    fetch('https://fakestoreapi.com/products').then((response)=>{
-        return response.json();
-    }).then((data)=>{
-        const productRefreshedList= data;
-        console.log(productRefreshedList);
-        productsPrint(productRefreshedList);
-    }).catch((A)=>{
-        console.log(A);
-    })
-
-    for(let i=0 ; i < productRefreshedList.length; i++ ){
-    productList.push(productRefreshedList[i])
-    }
-}
+btn.addEventListener("click", refreshedlistShow)
 
 
 
 
-function productsPrint(A,B) {
+function productsPrint(A) {
     for(let i=0 ; i < A.length; i++ ){
         const productBox =document.createElement("div")
         productBox.setAttribute("class", "Product")
@@ -126,9 +108,42 @@ function productsPrint(A,B) {
 fetch('https://fakestoreapi.com/products').then((response)=>{
     return response.json();
 }).then((data)=>{
-    const productList= data;
+    var productList= data;
     console.log(productList);
     productsPrint(productList);
 }).catch((A)=>{
     console.log(A);
 })
+
+var count = productList.length
+console.log(count)
+
+function refreshedlistShow () {
+
+
+    while(productPrintBox.lastElementChild){
+        productPrintBox.removeChild(productPrintBox.lastElementChild) 
+    }
+
+    fetch('https://fakestoreapi.com/products').then((response)=>{
+        return response.json();
+    }).then((data)=>{
+        const productRefreshedList= data;
+        removeList(count)
+       // console.log(productRefreshedList);
+        productsPrint(productRefreshedList);
+    }).catch((A)=>{
+        console.log(A);
+    })
+
+   // for(let i=0 ; i < productRefreshedList.length; i++ ){
+   // productList.push(productRefreshedList[i])
+   // }
+}
+
+
+function removeList (A){
+    for(let i=0 ; i <A; i++ ){
+        productPrintBox.removeChild(productPrintBox.firstElementChild);
+        }
+}
