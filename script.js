@@ -108,18 +108,14 @@ function productsPrint(A) {
 fetch('https://fakestoreapi.com/products').then((response)=>{
     return response.json();
 }).then((data)=>{
-    var productList= data;
+    const productList= data;
     console.log(productList);
     productsPrint(productList);
 }).catch((A)=>{
     console.log(A);
 })
 
-var count = productList.length
-console.log(count)
-
 function refreshedlistShow () {
-
 
     while(productPrintBox.lastElementChild){
         productPrintBox.removeChild(productPrintBox.lastElementChild) 
@@ -129,21 +125,8 @@ function refreshedlistShow () {
         return response.json();
     }).then((data)=>{
         const productRefreshedList= data;
-        removeList(count)
-       // console.log(productRefreshedList);
         productsPrint(productRefreshedList);
     }).catch((A)=>{
         console.log(A);
     })
-
-   // for(let i=0 ; i < productRefreshedList.length; i++ ){
-   // productList.push(productRefreshedList[i])
-   // }
-}
-
-
-function removeList (A){
-    for(let i=0 ; i <A; i++ ){
-        productPrintBox.removeChild(productPrintBox.firstElementChild);
-        }
 }
